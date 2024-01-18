@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function HomeScreen() {
     return (
 <View style={styles.container}>
-    <Text>This is Home Screen! This is a test! this is another test</Text>
+    <Text>This is Home Screen! This is a test! this is another test! KIF ROBT TI QI</Text>
 </View>
     )
 }
