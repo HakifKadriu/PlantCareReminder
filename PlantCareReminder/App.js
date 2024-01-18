@@ -23,9 +23,6 @@ export default function App() {
     return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={{
-          // tabBarStyle: { backgroundColor: 'powderblue' },
-        }}
       >
         <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarLabel: '',
