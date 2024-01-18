@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function Notifications() {
     return (
 <View style={styles.container}>
-    <Text>This is Notifications screen! kkkk
+    <Text>This is Notifications screen! sdadasda
         dasdasd
     </Text>
 </View>
