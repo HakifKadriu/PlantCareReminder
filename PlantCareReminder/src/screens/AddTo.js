@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
 
   imagePlaceholder:{
-    width: 372,
+    width: 300,
     height: 300,
     border: 1,
     borderBlockColor: 'black',

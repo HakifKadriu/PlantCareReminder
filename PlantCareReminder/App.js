@@ -23,7 +23,13 @@ export default function App() {
   } else {
     return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+ screenOptions={({ route }) => ({
+  headerStyle: {
+    backgroundColor: 'gold', //Ketu ndrrohet ngjyra e Headerit
+  },
+})}
+      >
         <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
