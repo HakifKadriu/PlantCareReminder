@@ -37,16 +37,16 @@ export default function App() {
             <MaterialCommunityIcons name="calendar" color={'forestgreen'} size={20} />
           ),
         }} />
-         <Tab.Screen
-            name="Add Plant"
-            component={AddTo}
-            options={{
-              tabBarLabel: '', // You can set a label if needed
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="plus-circle" color={'forestgreen'} size={40} />
-              ),
-            }}
-          />
+          <Tab.Screen
+             name="Add Plant"
+             component={AddTo}
+             options={{
+               tabBarLabel: '', // You can set a label if needed
+               tabBarIcon: ({ color }) => (
+                 <MaterialCommunityIcons name="plus-circle" color={'forestgreen'} size={37} />
+               ),
+             }}
+           />
         <Tab.Screen name="Encyclopedia" component={Encyclopedia}
         options={{
           tabBarLabel: '',
