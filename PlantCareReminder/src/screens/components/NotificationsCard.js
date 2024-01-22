@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, Button, Image } from "react-native";
 
 export default function NotificationCard() {
   return (
+    <>
     <View style={styles.Kartelat}>
       <View style={styles.KartelaFotove}>
         <Image
@@ -17,6 +18,8 @@ export default function NotificationCard() {
         <Text></Text>
       </View>
     </View>
+    {/* <View></View> */}
+    </>
   );
 }
 
