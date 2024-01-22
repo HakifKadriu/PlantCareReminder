@@ -11,17 +11,17 @@ import AddTo from './src/screens/AddTo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import LinearGradient from "react-native-linear-gradient";
 
 const Tab = createBottomTabNavigator();
 export default function App() {
   let isLoggedIn = true;
-  if (!isLoggedIn)
-  {
-    return ( <LoginScreen></LoginScreen> );
+  if (!isLoggedIn) {
+    return <LoginScreen></LoginScreen>;
   } else {
     return (
+
     <NavigationContainer>
       <Tab.Navigator
  screenOptions={({ route }) => ({
@@ -71,14 +71,14 @@ export default function App() {
     </NavigationContainer>
     );
   }
-  
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
+  Gradiant: {},
 });
