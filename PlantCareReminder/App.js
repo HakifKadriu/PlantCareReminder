@@ -12,7 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import LinearGradient from "react-native-linear-gradient";
+// import LinearGradient from "react-native-linear-gradient";
 
 const Tab = createBottomTabNavigator();
 export default function App() {
@@ -36,13 +36,13 @@ export default function App() {
             <MaterialCommunityIcons name="home" color={'forestgreen'} size={20} />
           ),
         }} />
-        <Tab.Screen name="Calendar" component={Calendar} 
-        options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="calendar" color={'forestgreen'} size={20} />
-          ),
-        }} />
+             <Tab.Screen name="Irrigation Calendar" component={Calendar} 
+             options={{
+               tabBarLabel: '',
+               tabBarIcon: ({ color }) => (
+                 <MaterialCommunityIcons name="calendar" color={'forestgreen'} size={20} />
+               ),
+             }} />
           <Tab.Screen
              name="Add Plant"
              component={AddTo}
