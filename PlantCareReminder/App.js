@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
-import Details from './src/screens/Details';
-import Calendar from './src/screens/Calendar';
-import HealthTracker from './src/screens/HealthTracker';
-import Notifications from './src/screens/Notifications';
-import Encyclopedia from './src/screens/Encyclopedia';
-import Settings from './src/screens/Settings';
+import HomeScreen from './screens/HomeScreen';
+import Details from './screens/Details';
+import Calendar from './screens/Calendar';
+import HealthTracker from './screens/HealthTracker';
+import Notifications from './screens/Notifications';
+import Encyclopedia from './screens/Encyclopedia';
+import Settings from './screens/Settings';
+import AddTo from './AddTo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -22,22 +23,13 @@ export default function App() {
   } else {
     return (
     <NavigationContainer>
-      <Tab.Navigator
-      >
+      <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarLabel: '',
-          tabBarBadgeStyle: "gray",          
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={'forestgreen'} size={20} />
           ),
         }} />
-        <Tab.Screen name="Details" component={Details} 
-        options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="dots-horizontal" color={'forestgreen'} size={20} />
-          ),
-        }}/>
         <Tab.Screen name="Calendar" component={Calendar} 
         options={{
           tabBarLabel: '',
@@ -45,20 +37,16 @@ export default function App() {
             <MaterialCommunityIcons name="calendar" color={'forestgreen'} size={20} />
           ),
         }} />
-        <Tab.Screen name="Health Tracker" component={HealthTracker}
-        options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="pulse" color={'forestgreen'} size={20} />
-          ),
-        }} />
-        <Tab.Screen name="Notifications" component={Notifications}
-        options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={'forestgreen'} size={20} />
-          ),
-        }} />
+         <Tab.Screen
+            name="Add Plant"
+            component={AddTo}
+            options={{
+              tabBarLabel: '', // You can set a label if needed
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="plus-circle" color={'forestgreen'} size={40} />
+              ),
+            }}
+          />
         <Tab.Screen name="Encyclopedia" component={Encyclopedia}
         options={{
           tabBarLabel: '',
