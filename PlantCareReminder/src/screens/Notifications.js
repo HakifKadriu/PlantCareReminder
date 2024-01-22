@@ -11,4 +11,7 @@ export default function Notifications() {
 }
 
 const styles = StyleSheet.create({
-});
+    AllNotifications: {
+        flexDirection: 'row'
+    },
+  });
