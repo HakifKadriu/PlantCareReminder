@@ -14,6 +14,7 @@ export default function NotificationCard() {
         <Text style={styles.TekstiKryesor}>Time to water Aglonema!</Text>
         <Text style={styles.TekstiSekondar}>Time until next irrigation: 1d 21h 45m</Text>
         <Text style={styles.Teksti3te}>2h 14m Ago</Text>
+        <Text></Text>
       </View>
     </View>
   );
