@@ -11,4 +11,4 @@ export default function Details() {
 
 const styles = StyleSheet.create({
 
-  });
+});

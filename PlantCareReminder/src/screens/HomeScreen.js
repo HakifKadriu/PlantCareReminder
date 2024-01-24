@@ -1,13 +1,63 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import Plant from './components/Plant';
+import { SelectList } from 'react-native-dropdown-select-list';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 
 export default function HomeScreen() {
-    return (
-<View style={styles.container}>
-    <Text>This is Home Screen!</Text>
-</View>
-    )
+  const [selected, setSelected] = React.useState("");
+  
+  const data = [
+    {key:'1', value:'Name (desc)'},
+    {key:'2', value:'Name (asc)'},
+    {key:'3', value:'Irrigation Time (desc)'},
+    {key:'4', value:'Irrigation Time (asc)'},
+]
+
+  return (
+    <View style={styles.maincontainer}>
+      <View>
+        <Text style={{fontSize: 22, marginBottom: 10, marginTop: 15}}>My plants</Text>
+        <SelectList
+          setSelected={(selected) => setSelected(selected)} 
+          data={data} 
+          style={styles.dropdown}
+          save="value"
+        />
+      </View>
+        <ScrollView>
+          <View style={styles.plantsContainer}>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+            <Plant></Plant>
+          </View>
+        </ScrollView>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
+    maincontainer: {
+        marginHorizontal: 25,
+        // marginTop: 15,
+        flex: 1,
+
+        height: windowHeight,
+        // overflow: "scroll",
+    },
+    plantsContainer: {
+      gap: 5,
+      width: "100%",
+      // height: "80%",
+
+    }
 });

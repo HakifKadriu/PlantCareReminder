@@ -7,18 +7,18 @@ export default function NotificationCard() {
     <View style={styles.Kartelat}>
       <View style={styles.KartelaFotove}>
         <Image
-          style={{ width: 80, height: 80, resizeMode: 'cover' }}
-          source={{ uri: "https://reactnative.dev/img/tiny_logo.png" }}
+          style={{ width: 80, height: 80, resizeMode: 'cover', borderRadius: 15,}}
+          source={require("../../images/aglonema.jpg")}
         />
       </View>
-      <View>
+      <View style={{justifyContent: "space-between"}}>
         <Text style={styles.TekstiKryesor}>Plant Name</Text>
-        <Text style={styles.TekstiSekondar}>Irrigation Cycle: Every 2 Days</Text>
-        <Text style={styles.Teksti3te}>Last irrigation date: January 18th</Text>
-        <Text></Text>
+        <View>
+          <Text style={styles.TekstiSekondar}>Irrigation Cycle: <span style={{fontWeight: "500"}}>Every 2 Days</span></Text>
+          <Text style={styles.Teksti3te}>Last irrigation date: <span style={{fontWeight: "500"}}>January 18th</span></Text>
+        </View>
       </View>
     </View>
-    {/* <View></View> */}
     </>
   );
 }
@@ -26,13 +26,13 @@ export default function NotificationCard() {
 const styles = StyleSheet.create({
   Kartelat: {
     flexDirection: 'row',
-    width: 370,
-    height: 100,
-    backgroundColor: '#ddd',
+    backgroundColor: '#00B359',
     gap: 10,
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 20,
+
+    marginTop: 10,
   },
   KartelaFotove: {
   },
@@ -42,12 +42,13 @@ const styles = StyleSheet.create({
   },
   TekstiSekondar: {
     fontWeight: '300',
-    fontSize: 12,
+    fontSize: 14,
     marginTop: 10,
   },
   Teksti3te: {
     fontWeight: '300',
-    fontSize: 12,
-    marginTop: 10,
+    fontSize: 14,
+
+    marginBottom: 10,
   },
 });
