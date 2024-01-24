@@ -50,7 +50,7 @@ const AddTo = () => {
   ];
   return (
     <View style={styles.MainContainer}>
-      <Pressable style={styles.imagePlaceholder} onPress={launchImageLibrary()}>
+      <Pressable style={styles.imagePlaceholder}>
         <Text style={styles.addImageTxt}>Add An Image!</Text>
       </Pressable>
       <View style={styles.inputLabel}>
@@ -79,7 +79,7 @@ const AddTo = () => {
           data={data}
           save="value"
         />
-        <Pressable style={styles.buttonDone} onPress={save()}>
+        <Pressable style={styles.buttonDone}>
           <Text>Done</Text>
         </Pressable>
         {/* <Text>

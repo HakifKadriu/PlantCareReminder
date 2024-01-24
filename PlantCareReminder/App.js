@@ -34,13 +34,27 @@ export default function () {
             })}
           >
             <Tab.Screen
+              name="Splashscreen"
+              component={Splashscreen}
+              options={{
+                tabBarLabel: "",
+                tabBarIcon: ({ color }) => (
+                  <MaterialCommunityIcons
+                    name="?"
+                    color={"forestgreen"}
+                    size={20}
+                  />
+                ),
+              }}
+            />
+            <Tab.Screen
               name="Add Plant"
               component={AddTo}
               options={{
                 tabBarLabel: "", // You can set a label if needed
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons
-                    name="plus-circle"
+                  name="plus-circle"
                     color={"forestgreen"}
                     size={37}
                   />
@@ -69,20 +83,6 @@ export default function () {
                 tabBarIcon: ({ color }) => (
                   <MaterialCommunityIcons
                     name="calendar"
-                    color={"forestgreen"}
-                    size={20}
-                  />
-                ),
-              }}
-            />
-            <Tab.Screen
-              name="Splashscreen"
-              component={Splashscreen}
-              options={{
-                tabBarLabel: "",
-                tabBarIcon: ({ color }) => (
-                  <MaterialCommunityIcons
-                    name="?"
                     color={"forestgreen"}
                     size={20}
                   />
