@@ -8,9 +8,7 @@ import {
   Image,
   TextInput,
   Pressable,
-  DropDownPicker,
   Dimensions,
-  Alert,
 } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import {launchImageLibrary} from 'react-native-image-picker';
@@ -36,8 +34,8 @@ const windowHeight = Dimensions.get("window").height;
 
 const AddTo = () => {
   const [plantName, setplantName] = React.useState("");
-  const [text2, setText2] = React.useState("");
-  const [selected, setSelected] = React.useState("");
+  const [temperature, setTemperature] = React.useState("");
+  const [selectedTime, setSelectedTime] = React.useState("");
   const [selectedImage, setSelectedImage] = React.useState(null);
   const openImagePicker = () => {
     const options = {
@@ -90,15 +88,15 @@ const AddTo = () => {
         <TextInput
           style={styles.txtInput}
           label="Email"
-          value={text2}
-          onChangeText={(text2) => setText2(text2)}
+          value={temperature}
+          onChangeText={(temperature) => setTemperature(temperature)}
         />
       </View>
       <View style={styles.Watering}>
         <Text>Water Every: </Text>
         <SelectList
           style={styles.DropDownPickeri}
-          setSelected={(selected) => setSelected(selected)}
+          setSelected={(selectedTime) => setSelectedTime(selectedTime)}
           data={data}
           save="value"
         />
