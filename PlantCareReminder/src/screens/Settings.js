@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import fetchWikiExtract from "../backend/wikiApi";
+import fetchData from "../backend/wikiApi";
 
 // const WindowWidth = Dimensions.get("window").width;
 // const WindowHeight = Dimensions.get("window").height;
+
+// const wikiData = await fetchWikiExtract("Aglaonema");
+// const wikiOutput = wikiData.query.pages[0].extract;
 
 export default function Settings() {
   return (
@@ -12,7 +16,7 @@ export default function Settings() {
 
       {/* WIKI API TEST */}
       <Pressable
-      onPress={() => fetchWikiExtract()}
+      onPress={() => console.log(fetchData())}
       >
         <Text>Press me !</Text>
       </Pressable>
