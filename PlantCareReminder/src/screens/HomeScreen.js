@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import Plant from './components/Plant';
+import Plant from '../components/Plant';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 const windowWidth = Dimensions.get('window').width;
@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.maincontainer}>
-      <View>
+      <View style={{marginBottom: 20}}>
         <Text style={{fontSize: 22, marginBottom: 10, marginTop: 15}}>My plants</Text>
         <SelectList
           setSelected={(selected) => setSelected(selected)} 
@@ -30,15 +30,12 @@ export default function HomeScreen() {
       </View>
         <ScrollView>
           <View style={styles.plantsContainer}>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
-            <Plant></Plant>
+            <Plant name="Aglonema"></Plant>
+            <Plant name="Orchid"></Plant>
+            <Plant name="Peace Lily"></Plant>
+            <Plant name="Peace Lily2"></Plant>
+            <Plant name="Peace Lily3"></Plant>
+            <Plant name="Peace Lily4"></Plant>
           </View>
         </ScrollView>
     </View>
@@ -51,13 +48,12 @@ const styles = StyleSheet.create({
         // marginTop: 15,
         flex: 1,
 
-        height: windowHeight,
-        // overflow: "scroll",
+        // height: windowHeight,
+        marginBottom: 20,
     },
     plantsContainer: {
       gap: 5,
       width: "100%",
       // height: "80%",
-
-    }
+    },
 });

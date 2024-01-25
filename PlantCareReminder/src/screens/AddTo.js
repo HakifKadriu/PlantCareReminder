@@ -11,7 +11,8 @@ import {
   Dimensions,
 } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
-import {launchImageLibrary} from 'react-native-image-picker';
+// import {launchImageLibrary} from 'react-native-image-picker';
+import * as ImagePicker from 'react-native-image-picker';
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -45,7 +46,7 @@ const AddTo = () => {
       maxWidth: 2000,
     };
   
-    launchImageLibrary(options, (response) => {
+    ImagePicker.launchImageLibrary(options, (response) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {

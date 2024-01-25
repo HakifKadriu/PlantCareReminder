@@ -9,7 +9,7 @@ import {
   Pressable,
   Button,
 } from "react-native";
-import WikiCard from "./components/WikiCards";
+import WikiCard from "../components/WikiCards";
 import {
   NavigationContainer,
   Link,
@@ -23,15 +23,12 @@ import Details from "./Details";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
+
 export default function Encyclopedia({ navigation }) {
   const [search, setSearch] = useState("");
 
   return (
     <ScrollView>
-      {/* <Stack.Navigator initialRouteName="Encyclopedia">
-        <Stack.Screen name="Encyclopedia" component={Encyclopedia} />
-        <Stack.Screen name="Details" component={Details} />
-      </Stack.Navigator> */}
       <View style={styles.mainContainer}>
         <View>
           <TextInput
@@ -53,7 +50,7 @@ export default function Encyclopedia({ navigation }) {
           </Text>
         </View>
 
-        <Text style={{ fontSize: 26, marginTop: 60 }}>
+        <Text style={{ fontSize: 26, marginTop: 40 }}>
           Popular Indoor Plants
         </Text>
 
@@ -77,10 +74,11 @@ export default function Encyclopedia({ navigation }) {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    height: windowHeight,
+    // height: windowHeight,
 
     marginHorizontal: 20,
-    marginVertical: 20,
+    marginTop: 20,
+    marginBottom: 20,
   },
   searchInput: {
     fontSize: 20,
@@ -105,8 +103,6 @@ const styles = StyleSheet.create({
   },
   plantsContainer: {
     gap: 15,
-
-    paddingBottom: 200,
     marginTop: 10,
   },
 });

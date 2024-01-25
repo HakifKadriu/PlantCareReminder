@@ -8,14 +8,14 @@ export default function NotificationCard() {
       <View style={styles.KartelaFotove}>
         <Image
           style={{ width: 80, height: 80, resizeMode: 'cover', borderRadius: 15,}}
-          source={require("../../images/aglonema.jpg")}
+          source={require("../images/aglonema.jpg")}
         />
       </View>
       <View style={{justifyContent: "space-between"}}>
         <Text style={styles.TekstiKryesor}>Plant Name</Text>
         <View>
-          <Text style={styles.TekstiSekondar}>Irrigation Cycle: <span style={{fontWeight: "500"}}>Every 2 Days</span></Text>
-          <Text style={styles.Teksti3te}>Last irrigation date: <span style={{fontWeight: "500"}}>January 18th</span></Text>
+          <Text style={styles.TekstiSekondar}>Irrigation Cycle: <Text style={{fontWeight: "500"}}>Every 2 Days</Text></Text>
+          <Text style={styles.Teksti3te}>Last irrigation date: <Text style={{fontWeight: "500"}}>January 18th</Text></Text>
         </View>
       </View>
     </View>

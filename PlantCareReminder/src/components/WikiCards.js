@@ -12,7 +12,7 @@ export default function WikiCard({navigation}) {
         <View style={styles.maincontainer}>
             <View style={styles.imageContainer}>
                 <Image
-                    source={require("../../images/aglonema.jpg")}
+                    source={require("../images/aglonema.jpg")}
                     // resizeMode='contain'
                     style={{
                         width: "80%",
@@ -24,7 +24,7 @@ export default function WikiCard({navigation}) {
 
             <View style={styles.detailsContainer}>
                 <Text style={{fontSize: 28, borderBottomWidth: 5, borderBottomColor: "#33ff33", marginRight: 15}}>Aglonema</Text>
-                <Text style={{fontSize: 16, marginTop: 10,}}>Region: <br></br><span style={{fontSize: 18, fontWeight: "500"}}>Asia and New Guinea</span></Text>
+                <Text style={{fontSize: 16, marginTop: 10,}}>Region: <Text style={{fontSize: 18, fontWeight: "500"}}>Asia and New Guinea</Text></Text>
                 <Pressable
                     style={styles.butoni}
                     // onPress={() => navigation.navigate('Details')}
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
 
     },
+    
     butoni: {
         // backgroundColor: "#33ff33",
         width: 175,
