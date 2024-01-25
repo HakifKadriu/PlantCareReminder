@@ -13,7 +13,7 @@ import {
   Alert,
 } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
-import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import {launchImageLibrary} from 'react-native-image-picker';
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -38,9 +38,27 @@ const AddTo = () => {
   const [plantName, setplantName] = React.useState("");
   const [text2, setText2] = React.useState("");
   const [selected, setSelected] = React.useState("");
-
-  // const result = await launchCamera();
-
+  const [selectedImage, setSelectedImage] = React.useState(null);
+  const openImagePicker = () => {
+    const options = {
+      mediaType: 'photo',
+      includeBase64: false,
+      maxHeight: 2000,
+      maxWidth: 2000,
+    };
+  
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('Image picker error: ', response.error);
+      } else {
+        let imageUri = response.uri || response.assets?.[0]?.uri;
+        setSelectedImage(imageUri);
+      }
+    });
+  };
+  
   const data = [
     { key: "1", value: "Every 1 hour" },
     { key: "2", value: "Every 2 hours" },
@@ -50,9 +68,14 @@ const AddTo = () => {
   ];
   return (
     <View style={styles.MainContainer}>
-      <Pressable style={styles.imagePlaceholder}>
-        <Text style={styles.addImageTxt}>Add An Image!</Text>
-      </Pressable>
+    <Pressable style={[styles.imagePlaceholder, selectedImage ? { backgroundColor: 'transparent' } : null]} onPress={openImagePicker}>
+      {selectedImage ? (
+      <Image source={{ uri: selectedImage }} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
+      ) : (
+      <Text style={styles.addImageTxt}>Add An Image!</Text>
+      )}
+    </Pressable>
+
       <View style={styles.inputLabel}>
         <Text>Plant Name: </Text>
         <TextInput
@@ -82,10 +105,6 @@ const AddTo = () => {
         <Pressable style={styles.buttonDone}>
           <Text>Done</Text>
         </Pressable>
-        {/* <Text>
-          Emri i plantit: 
-          {load()}
-        </Text> */}
       </View>
     </View>
   );
@@ -104,8 +123,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.3,
     border: 1,
     borderBlockColor: "black",
-    backgroundColor: "#ddd",
-    alignItems: "center",
+    backgroundColor: '#ddd',    alignItems: "center",
     textAlign: "center",
   },
 
