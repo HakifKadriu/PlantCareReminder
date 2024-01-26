@@ -14,14 +14,6 @@ export default function Settings() {
   return (
     <View style={styles.container}>
 
-      {/* WIKI API TEST */}
-      <Pressable
-      onPress={() => console.log(fetchData())}
-      >
-        <Text>Press me !</Text>
-      </Pressable>
-
-
       <Text style={styles.GeneralSettings}>General Settings</Text>
       <View style={styles.Language}>
         <MaterialCommunityIcons

@@ -16,7 +16,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerStyle: {
-          backgroundColor: "gold",
+          backgroundColor: "forestgreen",
         },
       })}
     >
