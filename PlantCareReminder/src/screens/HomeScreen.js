@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
 import Plant from '../components/Plant';
 import { SelectList } from 'react-native-dropdown-select-list';
 
@@ -9,6 +9,7 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function HomeScreen() {
   const [selected, setSelected] = React.useState("");
+
   
   const data = [
     {key:'1', value:'Name (desc)'},

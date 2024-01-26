@@ -47,10 +47,12 @@ const AddTo = () => {
 
   const data = [
     { key: "1", value: "Every 1 hour" },
-    { key: "2", value: "Every 2 hours" },
     { key: "3", value: "Every 6 hours" },
     { key: "4", value: "Every 12 hours" },
     { key: "5", value: "Every 24 hours" },
+    { key: "6", value: "Every 2 days" },
+    { key: "7", value: "Every 4 days" },
+    { key: "8", value: "Every 7 days" },
   ];
 
   return (
@@ -69,7 +71,7 @@ const AddTo = () => {
         <TextInput
           style={styles.txtInput}
           label="Plant Name"
-          placeholder="Enter Plant Name"
+          placeholder="Enter plant name"
           value={plantName}
           onChangeText={(plantName) => setPlantName(plantName)}
         />
@@ -79,7 +81,7 @@ const AddTo = () => {
         <TextInput
           style={styles.txtInput}
           label="Temperature"
-          placeholder="Enter Plant Temperature"
+          placeholder="Enter plant temperature"
           value={temperature}
           onChangeText={(temperature) => setTemperature(temperature)}
         />
@@ -89,7 +91,7 @@ const AddTo = () => {
         <TextInput
           style={styles.txtInput}
           label="Fertilization"
-          placeholder="Enter Fertilization time"
+          placeholder="Enter fertilization time"
           value={fertilization}
           onChangeText={(fertilization) => setFertilization(fertilization)}
         />
@@ -102,7 +104,7 @@ const AddTo = () => {
           data={data}
           save="value"
         />
-        <Pressable style={styles.buttonDone} onPress={() => { /* Handle your save logic here */ console.log("Save function"); }}>
+        <Pressable style={styles.buttonDone} onPress={() => {console.log("Save function"); }}>
           <Text>Done</Text>
         </Pressable>
       </View>
