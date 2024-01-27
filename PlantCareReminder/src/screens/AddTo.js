@@ -7,10 +7,12 @@ import {
   TextInput,
   Pressable,
   Dimensions,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from "expo-image-picker";
+import storage from "../backend/storage";
+import { savePlant } from "../backend/storageFunctions";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -21,27 +23,28 @@ const AddTo = () => {
   const [selectedTime, setSelectedTime] = React.useState("");
   const [fertilization, setFertilization] = React.useState("");
   const [selectedImage, setSelectedImage] = React.useState(null);
+  const [idCounter, setidCounter] = React.useState(1);
 
   const openImagePicker = async () => {
     const options = {
-      mediaType: 'photo',
+      mediaType: "photo",
       includeBase64: false,
       maxHeight: 2000,
       maxWidth: 2000,
     };
-  
+
     try {
       const response = await ImagePicker.launchImageLibraryAsync(options);
       if (response.canceled) {
-        console.log('User cancelled image picker');
+        console.log("User cancelled image picker");
       } else if (response.error) {
-        console.log('Image picker error: ', response.error);
+        console.log("Image picker error: ", response.error);
       } else {
         let imageUri = response.assets ? response.assets[0].uri : response.uri;
         setSelectedImage(imageUri);
       }
     } catch (error) {
-      console.error('Error in image picker:', error);
+      console.error("Error in image picker:", error);
     }
   };
 
@@ -54,60 +57,74 @@ const AddTo = () => {
   ];
 
   return (
-<ScrollView>
-    <View style={styles.MainContainer}>
-      <Pressable style={[styles.imagePlaceholder, selectedImage ? { backgroundColor: 'transparent' } : null]} onPress={openImagePicker}>
-        {selectedImage ? (
-          <Image source={{ uri: selectedImage }} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
-        ) : (
-          <Text style={styles.addImageTxt}>Add An Image!</Text>
-        )}
-      </Pressable>
-
-      <View style={styles.inputLabel}>
-        <Text>Plant Name: </Text>
-        <TextInput
-          style={styles.txtInput}
-          label="Plant Name"
-          placeholder="Enter Plant Name"
-          value={plantName}
-          onChangeText={(plantName) => setPlantName(plantName)}
-        />
-      </View>
-      <View style={styles.inputLabel}>
-        <Text>Temperature: </Text>
-        <TextInput
-          style={styles.txtInput}
-          label="Temperature"
-          placeholder="Enter Plant Temperature"
-          value={temperature}
-          onChangeText={(temperature) => setTemperature(temperature)}
-        />
-      </View>
-      <View style={styles.inputLabel}>
-        <Text>Fertilization: </Text>
-        <TextInput
-          style={styles.txtInput}
-          label="Fertilization"
-          placeholder="Enter Fertilization time"
-          value={fertilization}
-          onChangeText={(fertilization) => setFertilization(fertilization)}
-        />
-      </View>
-      <View style={styles.Watering}>
-        <Text>Water Every: </Text>
-        <SelectList
-          style={styles.DropDownPickeri}
-          setSelected={(selectedTime) => setSelectedTime(selectedTime)}
-          data={data}
-          save="value"
-        />
-        <Pressable style={styles.buttonDone} onPress={() => { /* Handle your save logic here */ console.log("Save function"); }}>
-          <Text>Done</Text>
+    <ScrollView>
+      <View style={styles.MainContainer}>
+        <Pressable
+          style={[
+            styles.imagePlaceholder,
+            selectedImage ? { backgroundColor: "transparent" } : null,
+          ]}
+          onPress={openImagePicker}
+        >
+          {selectedImage ? (
+            <Image
+              source={{ uri: selectedImage }}
+              style={{ width: "100%", height: "100%", resizeMode: "contain" }}
+            />
+          ) : (
+            <Text style={styles.addImageTxt}>Add An Image!</Text>
+          )}
         </Pressable>
+
+        <View style={styles.inputLabel}>
+          <Text>Plant Name: </Text>
+          <TextInput
+            style={styles.txtInput}
+            label="Plant Name"
+            placeholder="Enter Plant Name"
+            value={plantName}
+            onChangeText={(plantName) => setPlantName(plantName)}
+          />
+        </View>
+        <View style={styles.inputLabel}>
+          <Text>Temperature: </Text>
+          <TextInput
+            style={styles.txtInput}
+            label="Temperature"
+            placeholder="Enter Plant Temperature"
+            value={temperature}
+            onChangeText={(temperature) => setTemperature(temperature)}
+          />
+        </View>
+        <View style={styles.inputLabel}>
+          <Text>Fertilization: </Text>
+          <TextInput
+            style={styles.txtInput}
+            label="Fertilization"
+            placeholder="Enter Fertilization time"
+            value={fertilization}
+            onChangeText={(fertilization) => setFertilization(fertilization)}
+          />
+        </View>
+        <View style={styles.Watering}>
+          <Text>Water Every: </Text>
+          <SelectList
+            style={styles.DropDownPickeri}
+            setSelected={(selectedTime) => setSelectedTime(selectedTime)}
+            data={data}
+            save="value"
+          />
+          <Pressable
+            style={styles.buttonDone}
+            onPress={() => {
+              savePlant("Plants", idCounter + 1, plantName, selectedImage, selectedTime, fertilization, temperature);
+            }}
+          >
+            <Text>Done</Text>
+          </Pressable>
+        </View>
       </View>
-    </View>
-</ScrollView>
+    </ScrollView>
   );
 };
 
@@ -124,7 +141,7 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.3,
     border: 1,
     borderBlockColor: "black",
-    backgroundColor: '#ddd',
+    backgroundColor: "#ddd",
     alignItems: "center",
     textAlign: "center",
   },
