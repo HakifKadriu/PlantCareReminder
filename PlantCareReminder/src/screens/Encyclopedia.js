@@ -18,7 +18,7 @@ const Encyclopedia = ({ navigation }) => {
 
   const handleSearch = async () => {
     try {
-      const apiKey = "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";
+      const apiKey = "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";
       const apiEndpoint = "https://api.openai.com/v1/chat/completions";
 
       const response = await fetch(apiEndpoint, {
