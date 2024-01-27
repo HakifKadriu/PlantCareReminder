@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Dimensions, Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import fetchWikiExtract from "../backend/wikiApi";
 import fetchData from "../backend/wikiApi";
+import storage from "../backend/storage";
+import { getIds, savePlant, loadPlant, loadPlantName } from "../backend/storageFunctions";
 
 // const WindowWidth = Dimensions.get("window").width;
 // const WindowHeight = Dimensions.get("window").height;
@@ -10,9 +12,28 @@ import fetchData from "../backend/wikiApi";
 // const wikiData = await fetchWikiExtract("Aglaonema");
 // const wikiOutput = wikiData.query.pages[0].extract;
 
+
+
 export default function Settings() {
   return (
     <View style={styles.container}>
+      {/* <Pressable
+        onPress={() => {
+          // const value = loadPlantName("Plants", "0001");
+          // getIds("Plants");
+          // loadPlants();
+          // console.log(value);
+          // savePlant("Plants", "0002", "Kifa", "13", "23");
+          // console.log(plant0003);
+          // storage.remove("Plants", "0001");
+
+          // storage.getAllDataForKey('Plants').then(users => {
+          //   console.log(users);
+          // });
+        }}
+      >
+        <Text>Load Plant</Text>
+      </Pressable> */}
 
       <Text style={styles.GeneralSettings}>General Settings</Text>
       <View style={styles.Language}>

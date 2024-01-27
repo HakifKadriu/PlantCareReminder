@@ -9,14 +9,62 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { loadPlantName } from "../backend/storageFunctions";
+import storage from "../backend/storage";
+import * as FileSystem from "expo-file-system";
 
 export default function Plant(props) {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   const navigation = useNavigation();
 
+  // const [plantName, setPlantName] = React.useState("");
+  // const [plantImage, setplantImage] = React.useState("");
+  // const [base64, setbase64] = React.useState("");
+  // const [plantIrrigation, setplantIrrigation] = React.useState("");
+  // const [plantFertilizing, setplantFertilizing] = React.useState("");
+  // const [plantTemperature, setplantTemperature] = React.useState("");
 
-  const plant = props.name;
+  // const convertTo64 = async (plantImage) => {
+  //   const value = await FileSystem.readAsStringAsync(plantImage, {
+  //     encoding: "base64",
+  //   });
+  //   setbase64(value);
+  // };
+
+  // const plantID = props.id;
+
+  // const loadName = async (plantID) => {
+  //   const name = await storage
+  //     .load({
+  //       key: "Plants",
+  //       id: plantID,
+  //     })
+  //     .catch((err) => {
+  //       console.warn(err.message);
+  //       switch (err.name) {
+  //         case "NotFoundError":
+  //           console.log("Data has not been found");
+  //           setPlantName("No Data");
+  //           setplantFertilizing("No Data");
+  //           setplantImage("No Data");
+  //           setplantIrrigation("No Data");
+  //           setplantTemperature("No Data");
+  //           break;
+  //         case "ExpiredError":
+  //           console.log("Data has expired");
+  //           break;
+  //       }
+  //     });
+  //   setPlantName(name.plantName);
+  //   setplantFertilizing(name.fertilizationCycle);
+  //   setplantImage(name.image);
+  //   setplantIrrigation(name.fertilizationCycle);
+  //   setplantTemperature(name.optimalTemperature);
+  // };
+
+  // loadName(plantID);
+  // const plant = props.name;
   return (
     //Nje kartel ndahet ne tri views: viewi per foto,detaje dhe per butona
     <View style={styles.maincontainer}>
@@ -28,7 +76,7 @@ export default function Plant(props) {
       </View>
 
       <View>
-        <Text style={{ fontSize: 22, fontWeight: "400" }}>{plant}</Text>
+        <Text style={{ fontSize: 22, fontWeight: "400" }}>Aglaonema</Text>
         <Text style={{ fontSize: 14, paddingLeft: 2, marginTop: 10 }}>
           <MaterialCommunityIcons
             name="watering-can"
@@ -38,8 +86,8 @@ export default function Plant(props) {
           0d 23h 15m
         </Text>
         <Text style={{ fontSize: 14 }}>
-          <MaterialCommunityIcons name="flower" color={"black"} size={20} /> 0d
-          23h 15m
+          <MaterialCommunityIcons name="flower" color={"black"} size={20} />
+          0d 23h 15m
         </Text>
         <Text style={{ fontSize: 14 }}>
           <MaterialCommunityIcons
@@ -59,11 +107,11 @@ export default function Plant(props) {
         }}
       >
         {/* //Details Button */}
-        <View style={{gap: 5,flexDirection: "row", justifyContent: "flex-end"}}>
+        <View
+          style={{ gap: 5, flexDirection: "row", justifyContent: "flex-end" }}
+        >
           <Text>Details</Text>
-          <Pressable
-            onPress={() => navigation.navigate("Details", {plantName: plant})}
-          >
+          <Pressable onPress={() => navigation.navigate("Details")}>
             <MaterialCommunityIcons
               name="information-outline"
               color={"black"}
@@ -81,7 +129,7 @@ export default function Plant(props) {
               borderRadius: 5,
             }}
           >
-            Water{" "}
+            Water
             <MaterialCommunityIcons
               name="watering-can"
               color={"black"}
