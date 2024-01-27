@@ -5,6 +5,7 @@ import { SelectList } from "react-native-dropdown-select-list";
 import storage from "../backend/storage";
 import { LoadPlants } from "../backend/storageFunctions";
 
+
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
